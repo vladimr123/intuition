@@ -1,19 +1,12 @@
-const Heroku = require('heroku-client')
-const heroku = new Heroku({ token: "ecb97cc6-a003-419f-8788-5a5fe0c15310" })
+var express = require("express");
+var app = express();
+app.use(express.logger());
 
-// GET requests
-heroku.get('/app').then(apps => {
-    // do something with apps 
-})
+app.get('/', function(request, response) {
+    response.send('Hello World!');
+});
 
-// POST requests
-heroku.post('/apps').then(app => {})
-
-// POST requests with body
-heroku.post('/apps', {body: {name: 'intuition-trainer'}}).then(app => {})
-
-// PATCH requests with body
-heroku.patch('/apps/my-app', {body: {name: 'intuition-trainer-app'}}).then(app => {})
-
-// DELETE requests
-heroku.delete('/apps/my-old-app').then(app => {})
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+    console.log("Listening on " + port);
+});
