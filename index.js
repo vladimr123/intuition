@@ -3,7 +3,7 @@ const heroku = new Heroku({ token: "ecb97cc6-a003-419f-8788-5a5fe0c15310" })
 
 // GET requests
 heroku.get('/app').then(apps => {
-    // do something with apps
+    // do something with apps 
 })
 
 // POST requests
